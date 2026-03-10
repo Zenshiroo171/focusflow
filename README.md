@@ -1,11 +1,10 @@
-# 🍅 FocusFlow — Pomodoro + To-Do App
+# 🍅 FocusFlow - Pomodoro + To-Do App
 
 Aplikasi produktivitas sederhana berbasis **HTML, CSS, dan JavaScript murni** (tanpa framework).  
-Dibuat sebagai project latihan level intermediate.
 
 ---
 
-## ✨ Fitur
+## Fitur
 
 - **Pomodoro Timer** — focus 25 menit, short break 5 menit, long break 15 menit
 - **Session Tracker** — 4 dot yang mewakili 1 putaran pomodoro
@@ -16,7 +15,7 @@ Dibuat sebagai project latihan level intermediate.
 
 ---
 
-## 📁 Struktur File
+## Struktur File
 
 ```
 focusflow/
@@ -34,7 +33,7 @@ focusflow/
 
 ---
 
-## 🚀 Cara Pakai
+## Cara Pakai
 
 1. Clone repo ini
 ```bash
@@ -56,20 +55,9 @@ git clone https://github.com/username/focusflow.git
 
 ---
 
-## 📚 Konsep JS yang Dipelajari
-
-- `setInterval` & `clearInterval` untuk timer
-- Array method: `.find()`, `.filter()`, `.forEach()`
-- `localStorage` untuk menyimpan data
-- DOM manipulation: `createElement`, `innerHTML`, `classList`
-- Event listeners: `click`, `keydown`
-
----
-
 ## 🖼 Preview
 
 ![FocusFlow Preview](preview.png)
 
 ---
 
-Made with ☕ as a learning project.
