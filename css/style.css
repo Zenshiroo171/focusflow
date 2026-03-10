@@ -1,0 +1,488 @@
+/* =============================================
+   FocusFlow - Main Stylesheet
+   ============================================= */
+
+/* -- Google Font -- */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Instrument+Sans:wght@300;400;500&display=swap');
+
+/* -- CSS Variables (warna & ukuran global) -- */
+:root {
+  --bg:         #F6F3EE;
+  --white:      #FFFFFF;
+  --border:     #E2D9CF;
+  --text:       #1C1916;
+  --muted:      #8A7F75;
+  --accent:     #C0533A;       /* merah bata */
+  --accent-bg:  #F7EAE6;
+  --blue:       #3A72C0;
+  --blue-bg:    #E6EDF7;
+  --green:      #3AAC6E;
+  --green-bg:   #E6F5ED;
+  --radius:     14px;
+  --shadow:     0 2px 16px rgba(0,0,0,0.07);
+}
+
+/* =============================================
+   RESET & BASE
+   ============================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Instrument Sans', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 36px 20px 60px;
+}
+
+/* =============================================
+   HEADER
+   ============================================= */
+header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+header h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+/* Warna accent pada kata "Flow" */
+header h1 span {
+  color: var(--accent);
+}
+
+header p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 4px;
+  font-weight: 300;
+}
+
+/* =============================================
+   LAYOUT UTAMA (2 kolom di desktop)
+   ============================================= */
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* Di layar kecil, susun ke bawah */
+@media (max-width: 620px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =============================================
+   CARD (wrapper tiap section)
+   ============================================= */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px;
+  box-shadow: var(--shadow);
+}
+
+.card h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* =============================================
+   POMODORO — Mode Tabs
+   ============================================= */
+.mode-tabs {
+  display: flex;
+  gap: 6px;
+  background: var(--bg);
+  padding: 4px;
+  border-radius: 10px;
+  margin-bottom: 22px;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 7px 6px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Tab yang sedang aktif */
+.mode-btn.active {
+  background: var(--white);
+  color: var(--accent);
+  box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+}
+
+/* =============================================
+   POMODORO — Tampilan Timer
+   ============================================= */
+.timer-box {
+  text-align: center;
+  margin: 10px 0 22px;
+}
+
+#timer-display {
+  font-family: 'Syne', sans-serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  letter-spacing: -2px;
+  line-height: 1;
+  color: var(--text);
+}
+
+#mode-label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-top: 8px;
+}
+
+/* =============================================
+   POMODORO — Tombol Kontrol
+   ============================================= */
+.timer-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+/* Semua tombol dasar */
+button {
+  border: none;
+  border-radius: 9px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.12s;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* Tombol reset & skip */
+#btn-reset,
+#btn-skip {
+  background: var(--bg);
+  color: var(--muted);
+  padding: 9px 16px;
+  font-size: 0.85rem;
+}
+
+#btn-reset:hover,
+#btn-skip:hover {
+  background: var(--border);
+  color: var(--text);
+}
+
+/* Tombol start — paling menonjol */
+#btn-start {
+  background: var(--accent);
+  color: #fff;
+  padding: 9px 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+#btn-start:hover {
+  opacity: 0.88;
+}
+
+/* =============================================
+   POMODORO — Dot Session Tracker
+   ============================================= */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* Satu dot = satu sesi pomodoro */
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background 0.3s;
+}
+
+.dot.done {
+  background: var(--accent);
+}
+
+/* =============================================
+   TO-DO — Input
+   ============================================= */
+.todo-input-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+#todo-input {
+  flex: 1;
+  padding: 9px 13px;
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.88rem;
+  background: var(--white);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#todo-input:focus {
+  border-color: var(--blue);
+}
+
+#todo-input::placeholder {
+  color: var(--muted);
+}
+
+#btn-add {
+  background: var(--blue);
+  color: #fff;
+  padding: 9px 16px;
+  font-size: 1.3rem;
+  border-radius: 9px;
+  line-height: 1;
+}
+
+#btn-add:hover {
+  opacity: 0.88;
+}
+
+/* =============================================
+   TO-DO — Filter Buttons
+   ============================================= */
+.todo-filters {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.filter-btn {
+  padding: 4px 13px;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  font-size: 0.77rem;
+  color: var(--muted);
+  background: transparent;
+  transition: all 0.18s;
+}
+
+.filter-btn.active {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: var(--blue-bg);
+}
+
+/* =============================================
+   TO-DO — List Item
+   ============================================= */
+#todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 260px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+/* Scrollbar tipis */
+#todo-list::-webkit-scrollbar {
+  width: 4px;
+}
+#todo-list::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 11px;
+  background: var(--bg);
+  border: 1.5px solid transparent;
+  border-radius: 9px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.todo-item:hover {
+  background: var(--white);
+  border-color: var(--border);
+}
+
+/* Checkbox custom */
+.todo-check {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  background: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+  font-size: 0.7rem;
+  color: transparent;
+}
+
+/* Saat todo di-centang */
+.todo-item.done .todo-check {
+  background: var(--green);
+  border-color: var(--green);
+  color: white;
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 0.87rem;
+}
+
+/* Teks dicoret kalau sudah selesai */
+.todo-item.done .todo-text {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+/* Tombol hapus item */
+.todo-del {
+  background: none;
+  border: none;
+  color: var(--border);
+  font-size: 0.9rem;
+  padding: 2px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+}
+
+.todo-del:hover {
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+
+/* =============================================
+   TO-DO — Footer
+   ============================================= */
+.todo-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  font-size: 0.77rem;
+  color: var(--muted);
+}
+
+#btn-clear {
+  background: none;
+  font-size: 0.77rem;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0;
+}
+
+#btn-clear:hover {
+  color: var(--accent);
+}
+
+/* =============================================
+   STATS BAR
+   ============================================= */
+.stats {
+  display: flex;
+  gap: 14px;
+  max-width: 860px;
+  margin: 20px auto 0;
+}
+
+@media (max-width: 620px) {
+  .stats {
+    flex-direction: column;
+  }
+}
+
+.stat-item {
+  flex: 1;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.stat-val {
+  display: block;
+  font-family: 'Syne', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+
+.stat-lbl {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* =============================================
+   TOAST NOTIFICATION
+   ============================================= */
+#toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(70px); /* awalnya tersembunyi */
+  background: var(--text);
+  color: #fff;
+  padding: 11px 22px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.14);
+  transition: transform 0.35s ease;
+  z-index: 99;
+  white-space: nowrap;
+}
+
+/* Kelas .show akan memunculkan toast ke atas */
+#toast.show {
+  transform: translateX(-50%) translateY(0);
+}

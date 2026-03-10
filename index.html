@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FocusFlow</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+
+    <header>
+      <h1>Focus<span>Flow</span></h1>
+      <p>Pomodoro Timer + To-Do List</p>
+    </header>
+
+    <main>
+
+      <!-- ======= POMODORO SECTION ======= -->
+      <section class="card" id="pomodoro">
+        <h2>🍅 Pomodoro Timer</h2>
+
+        <!-- Mode buttons -->
+        <div class="mode-tabs">
+          <button class="mode-btn active" data-mode="focus">Focus</button>
+          <button class="mode-btn" data-mode="short">Short Break</button>
+          <button class="mode-btn" data-mode="long">Long Break</button>
+        </div>
+
+        <!-- Timer display -->
+        <div class="timer-box">
+          <p id="timer-display">25:00</p>
+          <small id="mode-label">Focus Time</small>
+        </div>
+
+        <!-- Control buttons -->
+        <div class="timer-controls">
+          <button id="btn-reset">↺ Reset</button>
+          <button id="btn-start" class="primary">Start</button>
+          <button id="btn-skip">Skip ⏭</button>
+        </div>
+
+        <!-- Session tracker (4 dots = 1 round) -->
+        <div id="session-dots" class="dots"></div>
+      </section>
+
+
+      <!-- ======= TO-DO SECTION ======= -->
+      <section class="card" id="todo">
+        <h2>📋 To-Do List</h2>
+
+        <!-- Input -->
+        <div class="todo-input-row">
+          <input
+            type="text"
+            id="todo-input"
+            placeholder="Tambah tugas..."
+          />
+          <button id="btn-add">+</button>
+        </div>
+
+        <!-- Filter -->
+        <div class="todo-filters">
+          <button class="filter-btn active" data-filter="all">Semua</button>
+          <button class="filter-btn" data-filter="active">Aktif</button>
+          <button class="filter-btn" data-filter="done">Selesai</button>
+        </div>
+
+        <!-- List -->
+        <ul id="todo-list"></ul>
+
+        <!-- Footer info -->
+        <div class="todo-footer">
+          <span id="todo-count">0 tugas tersisa</span>
+          <button id="btn-clear">Hapus selesai</button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ======= STATS BAR ======= -->
+    <section class="stats">
+      <div class="stat-item">
+        <span class="stat-val" id="stat-pomodoro">0</span>
+        <span class="stat-lbl">🍅 Pomodoro</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-val" id="stat-done">0</span>
+        <span class="stat-lbl">✅ Tugas selesai</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-val" id="stat-focus">0m</span>
+        <span class="stat-lbl">⏱ Total fokus</span>
+      </div>
+    </section>
+
+    <!-- Toast notification -->
+    <div id="toast"></div>
+
+    <script src="js/pomodoro.js"></script>
+    <script src="js/todo.js"></script>
+    <script src="js/stats.js"></script>
+
+  </body>
+</html>
