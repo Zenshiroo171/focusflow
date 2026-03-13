@@ -72,6 +72,3 @@ Or visit the live version: [my-focusflow.vercel.app](https://my-focusflow.vercel
 
 ![FocusFlow Preview](preview.png)
 
----
-
-Made with ☕ as a learning project.
