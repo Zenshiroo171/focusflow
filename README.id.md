@@ -72,6 +72,5 @@ Atau kunjungi versi live: [my-focusflow.vercel.app](https://my-focusflow.vercel.
 
 ![FocusFlow Preview](preview.png)
 
----
 
 Dibuat dengan ☕ sebagai project latihan.
